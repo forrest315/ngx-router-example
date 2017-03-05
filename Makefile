@@ -11,7 +11,7 @@ app: build-app push-app
 
 api: build-api push-api
 
-build-app: clean
+build-app:
 	@echo "Building docker image..."
 	cd app && docker build -t $(HUB_TAG)ngxr-app:$(IMG_TAG) .
 
@@ -19,7 +19,7 @@ push-app: build-app
 	@echo "Uploading..."
 	docker push $(HUB_TAG)ngxr-app:$(IMG_TAG)
 
-build-api: clean
+build-api:
 	@echo "Building docker image..."
 	cd api && docker build -t $(HUB_TAG)ngxr-api:$(IMG_TAG) .
 

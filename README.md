@@ -148,6 +148,10 @@ $ curl 'http://ngxr-api.your-domain.com/db/dump?p=ngxr:ptn:/.*'
 6. once found a mapper got a mapper which not appears in cache via the "father path match", will put it into cache; if there is no match at all, will put a default match into catch to avoid next loop match, it will get out-of-date after the next cache update job.
 7. default match is to 127.0.0.1:8081, which will only return an error message.
 
+## redis version
+
+use nginx_redis.conf and set up a redis service, do not need api and http_level.lua.
+
 ## Author
 
 Liu Chong <mail@clojure.cn>

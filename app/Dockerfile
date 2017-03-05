@@ -1,4 +1,4 @@
-FROM liuchong/openresty:v0
+FROM openresty/openresty:alpine
 
 MAINTAINER Liu Chong <mail@clojure.cn>
 
