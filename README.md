@@ -1,4 +1,6 @@
 # ngx-router
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fliuchong%2Fngx-router-example.svg?type=shield)](https://app.fossa.io/projects/git%2Bgithub.com%2Fliuchong%2Fngx-router-example?ref=badge_shield)
+
 
 A router based on openresty, with an API to update the mappers.
 
@@ -155,3 +157,7 @@ use nginx_redis.conf and set up a redis service, do not need api and http_level.
 ## Author
 
 Liu Chong <mail@clojure.cn>
+
+
+## License
+[![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fliuchong%2Fngx-router-example.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fliuchong%2Fngx-router-example?ref=badge_large)
