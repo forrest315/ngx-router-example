@@ -160,4 +160,7 @@ Liu Chong <mail@clojure.cn>
 
 
 ## License
+
+[MIT](LICENSE)
+
 [![FOSSA Status](https://app.fossa.io/api/projects/git%2Bgithub.com%2Fliuchong%2Fngx-router-example.svg?type=large)](https://app.fossa.io/projects/git%2Bgithub.com%2Fliuchong%2Fngx-router-example?ref=badge_large)
