@@ -6,7 +6,10 @@ WORKDIR /opt/app
 
 ADD . /opt/app
 
-RUN npm install
+RUN apk --no-cache --virtual build-dependencies add \
+    python make g++ && \
+    npm install --verbose && \
+    apk del build-dependencies
 
 CMD npm start
 
