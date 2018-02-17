@@ -12,7 +12,7 @@ A router based on openresty, with an API to update the mappers.
 $ make all
 ```
 
-Please refer to Makefile, nginx/Dockerfile, api/Dockerfile to find more details.
+Please refer to Makefile, nginx/Dockerfile, api/Dockerfile for more details.
 
 Suppose the urls on docker cluster are:
 
@@ -22,9 +22,7 @@ http://ngxr-api.your-domain.com/ (the api)
 
 #### Use API
 
-There are two api currently: /api and /db,
-every update(add or del) of mapper will take some time,
-(the 'NGXR_DB_DELAY' in nginx/Dockerfile) to take effect.
+There are two apis currently: /api and /db, every update(add or del) of mapper will take some time (the 'NGXR_DB_DELAY' in nginx/Dockerfile) to take effect.
 
 
 ***/api:***
@@ -142,12 +140,12 @@ $ curl 'http://ngxr-api.your-domain.com/db/dump?p=ngxr:ptn:/.*'
 
 ## logic of nginx router the proxy:
 
-1. cache will update immediately on the start of the nginx, and set a update routine job running on the backend.
+1. cache will be updated immediately on the start of the nginx, and set a update routine job running on the backend.
 2. cache will not out of date, until the next update job set the update time to the NGXR_DB_DELAY.
-3. when successful connected to db, set the out-of-date time of current cache to be NGXR_DB_DELAY, then read the mappers again.
+3. when successfully connected to db, set the out-of-date time of current cache to be NGXR_DB_DELAY, then read the mappers again.
 4. uri will started of a "/", and /xxx/ will be effective to /xxx/, /xxx/yyy, /xxx/yyy/zzz, /xxx will only match itself exactly.
-5. as "/xxx/yyy/zzz", if there is an exactly mapper in the cache, will use it, if not, will use the father path "/xxx/yyy/" to do the next match, util "/".
-6. once found a mapper got a mapper which not appears in cache via the "father path match", will put it into cache; if there is no match at all, will put a default match into catch to avoid next loop match, it will get out-of-date after the next cache update job.
+5. for example, give a "/xxx/yyy/zzz": if there is an exactly mapper in the cache, will use it, if not, will use the father path "/xxx/yyy/" to do the next match, util "/".
+6. once found a mapper which not appears in cache via the "father path match", it will be put into cache; if there is no match at all, a default match will be put into cache to avoid next match loop, which will get out-of-date after the next cache update job.
 7. default match is to 127.0.0.1:8081, which will only return an error message.
 
 ## redis version
